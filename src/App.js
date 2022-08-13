@@ -24,6 +24,7 @@ handleComplete=(x)=>{this.setState({tasks:this.state.tasks.map(el=>(el.id===x?{.
     return (
       <div>
         <input type="text" placeholder='add...'/>
+        <button type='submit'>add todo</button>
         <Todolist tasks={this.state.tasks} del={this.handleDelete} comp={this.handleComplete}/>
       </div>
     )
