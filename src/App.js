@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Todolist from './TodoList/components/Todolist'
-
+import "./App.css"
 export default class App extends Component {
 state={
   tasks:[
@@ -18,10 +18,13 @@ state={
 
 handleDelete=(x)=>{this.setState({tasks:this.state.tasks.filter(el=>el.id!==x)})}
 
+handleComplete=(x)=>{this.setState({tasks:this.state.tasks.map(el=>(el.id===x?{...el,isDone:!el.isDone}:el))})}
+
   render() {
     return (
       <div>
-        <Todolist tasks={this.state.tasks} del={this.handleDelete} />
+        <input type="text" placeholder='add...'/>
+        <Todolist tasks={this.state.tasks} del={this.handleDelete} comp={this.handleComplete}/>
       </div>
     )
   }

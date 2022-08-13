@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Todo = ({task,del}) => {
+const Todo = ({task,del,comp}) => {
   return (
-    <div>
+    <div className={task.isDone?"completed":""}>
         <h1>{task.action} </h1>
-        <button>{task.isDone?"Undo":"Completed"}</button>
+        <button onClick={()=>comp(task.id)}>{task.isDone?"Undo":"Completed"}</button>
         <button onClick={()=>del(task.id)}>Delete </button>
     </div>
   )
